@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  setCapturedImage(String? imagePath) {
+  setCapturedImage({String? imagePath}) {
     setState(() {
       capturedImage = imagePath;
     });
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
     );
     if (res != null) {
-      setCapturedImage(res.path);
+      setCapturedImage(imagePath: res.path);
     }
   }
 
@@ -206,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       onPressed: (capturedImage == null ||
                                               capturedImage!.isEmpty)
                                           ? _showMyDialog
-                                          : setCapturedImage(null),
+                                          : setCapturedImage,
                                       child: Text(
                                         (capturedImage == null ||
                                                 capturedImage!.isEmpty)
